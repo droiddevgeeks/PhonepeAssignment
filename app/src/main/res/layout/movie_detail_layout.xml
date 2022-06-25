@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.example.domainmodule.models.IPopularMovies" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/size_16"
+        android:animateLayoutChanges="true">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/movie_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_release_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:text="Release Date"
+            android:textSize="@dimen/size_16"
+            app:layout_constraintStart_toEndOf="@id/movie_image"
+            app:layout_constraintTop_toTopOf="@id/movie_image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_release"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{movie.releaseDate}"
+            android:textSize="@dimen/size_12"
+            app:layout_constraintStart_toStartOf="@id/movie_release_text"
+            app:layout_constraintTop_toBottomOf="@id/movie_release_text"
+            tools:text="By DroidDevs" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_rating_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:text="Rating"
+            android:textSize="@dimen/size_16"
+            app:layout_constraintStart_toStartOf="@id/movie_release_text"
+            app:layout_constraintTop_toBottomOf="@id/movie_release" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Float.toString(movie.voteAverage)}"
+            android:textSize="@dimen/size_12"
+            app:layout_constraintStart_toStartOf="@id/movie_rating_text"
+            app:layout_constraintTop_toBottomOf="@id/movie_rating_text"
+            tools:text="By DroidDevs" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_popularity_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:text="Popularity"
+            android:textSize="@dimen/size_16"
+            app:layout_constraintStart_toStartOf="@id/movie_rating"
+            app:layout_constraintTop_toBottomOf="@id/movie_rating" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_popularity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Float.toString(movie.popularity)}"
+            app:layout_constraintStart_toStartOf="@id/movie_popularity_text"
+            app:layout_constraintTop_toBottomOf="@id/movie_popularity_text"
+            tools:text="By DroidDevs" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_overview_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8"
+            android:layout_marginTop="@dimen/dimen_24"
+            android:text="OverView"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_image"
+            tools:text="By DroidDevs" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_overview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:text="@{movie.overview}"
+            app:layout_constraintStart_toStartOf="@id/movie_overview_text"
+            app:layout_constraintTop_toBottomOf="@id/movie_overview_text"
+            tools:text="By DroidDevs" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
